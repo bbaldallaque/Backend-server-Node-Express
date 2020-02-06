@@ -1,0 +1,1 @@
+module.exports.SEED = '@@#$#$%%%hacenelaaeerna-><73536767&*@@#&8#((#@((@&@';
