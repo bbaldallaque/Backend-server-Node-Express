@@ -40,7 +40,7 @@ app.get('/', (req, res, next) => {
 // Actualizar usuario
 //=========================================
 
-app.put('/:id', (req, res) => {
+app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
 
     var id = req.params.id;
     var body = req.body;
@@ -118,7 +118,8 @@ app.post('/', mdAutenticacion.verificaToken, (req, res) => {
 
         res.status(201).json({
             ok: true,
-            usuario: usuarioGuardado
+            usuario: usuarioGuardado,
+            usuariotoken: req.usuario
         });
 
     });
@@ -129,7 +130,7 @@ app.post('/', mdAutenticacion.verificaToken, (req, res) => {
 // Eliminar usuarios por ID
 //=========================================
 
-app.delete('/:id', (req, res) => {
+app.delete('/:id', mdAutenticacion.verificaToken, (req, res) => {
 
     var id = req.params.id;
 
